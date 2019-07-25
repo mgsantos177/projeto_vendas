@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cursos On-line</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h1>Cursos Online</h1>
+
+			</div>
+		</div>
+	</nav>
+
+	<form class="form-horizontal" method="POST" action="/vendas"
+		th:object="${vendas}" enctype="multipart/form-data">
+		<div class="alert alert-success"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}	"></span>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Portal de Vendas</h3>
+			</div>
+			<div class="panel-body"></div>
+			<div class="form-group">
+				<label for="status" class="col-sm-2 control-label">Selecione
+					o Cliente:</label>
+				<div class="col-sm-4">
+					<select class="form-control" name="clientes">
+						<option th:each="cliente : ${addCliente}" th:value="${cliente.id}"
+							th:field="*{clientes}" th:text="${cliente.nome}"></option>
+					</select>
+				</div>
+				<div class="col-sm-2 ">
+					<button type="submit" class="btn btn-primary" name="action"
+						value="listarClientes">Listar Clientes</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="status" class="col-sm-2 control-label">Selecione
+					o Curso Desejado:</label>
+				<div class="col-sm-4">
+<<<<<<< HEAD
+					<select class="form-control" name="produtos" id="options">
+						<option th:each="produto : ${addProduto}" th:value="${produto.id}"
+							th:field="*{produtos}"
+=======
+					<select class="form-control" name="produtos" id="options">	
+						<option th:each="produto : ${addProduto}" th:value="${produto.id}" th:field="*{produtos}"
+>>>>>>> 2d20c12c7019b61f92119aa3f875c2c182c17749
+							th:text="${produto.nome} + '    R$' + ${produto.valor}"></option>
+					</select>
+				</div>
+				<div class="col-sm-2 ">
+					<button type="submit" class="btn btn-primary" name="action"
+						value="listarProdutos">Listar Produtos</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Quantidade" class="col-sm-2 control-label">Quantidade
+					de Cursos: </label>
+				<div class="col-sm-1">
+					<input type="number" class="form-control" min="1"
+						th:field="*{quantProdutos}" />
+				</div>
+				<div class="col-sm-1">
+					<button type="submit" class="btn btn-primary" name="action"
+						value="calcular">Calcular</button>
+				</div>
+				<label for="Total" class="col-sm-1 control-label">Total: R$</label>
+				<div class="col-sm-1">
+					<input type="text" class="form-control" th:field="*{valorTotal}"
+						readonly="readonly" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-5">
+					<button type="submit" class="btn btn-primary" name="action"
+						value="cadastrar">Salvar</button>
+					<button type="submit" class="btn btn-warning" name="action"
+						value="limpar">Limpar</button>
+				</div>
+			</div>
+		</div>
+
+	</form>
+	<form class="form-horizontal" method="POST" action="/vendas"
+		th:object="${vendas}">
+		<div class="col-sm-1 ">
+			<button type="submit" class="btn btn-primary" name="action"
+				value="listarVendas">Listar Vendas</button>
+		</div>
+		<div class="col-sm-1 ">
+			<button type="submit" class="btn btn-primary" name="action"
+				value="exportar">Exportar TXT</button>
+		</div>
+	</form>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/app.js"></script>
+
+</body>
+</html>

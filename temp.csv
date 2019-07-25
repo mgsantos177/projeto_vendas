@@ -1,0 +1,11 @@
+id_cliente;nome_cliente;id_produto;descricao_produto;quantidade;valor_total
+2;Douglas Gonçalves;1;Curso Java O.O;3;900.0;
+1;Matheus Gonçalves;3;Java Basico;1;200.0;
+3;Beatriz Candido;1;Curso Java O.O;1;300.0;
+3;Beatriz Candido;8;Spring Framework;1;400.0;
+3;Beatriz Candido;6;CSS E JAVA SCRIPT;1;300.0;
+2;Douglas Gonçalves;7;Angular Basico;10;5000.0;
+2;Douglas Gonçalves;2;Python basico;2;500.0;
+1;Matheus Gonçalves;6;CSS E JAVA SCRIPT;1;300.0;
+3;Beatriz Candido;5;Html Basico;1;100.0;
+1;Matheus Gonçalves;8;Spring Framework;1;400.0;

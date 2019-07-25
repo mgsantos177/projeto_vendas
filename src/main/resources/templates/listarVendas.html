@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cursos On-line</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h1>Cursos Online</h1>
+
+			</div>
+		</div>
+	</nav>
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">Clientes</div>
+			<table class="table table-bordered">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Nome do Cliente</th>
+					<th scope="col">Produto</th>
+					<th scope="col">Valor do Produto</th>
+					<th scope="col">Quantidade</th>
+					<th scope="col">Valor total</th>
+
+				</tr>
+				<tr th:each="venda : ${addVenda}">
+					<td th:text="${venda.id}"></td>
+					<td th:text="${venda.clientes.nome}"></td>
+					<td th:text="${venda.produtos.nome}"></td>
+					<td th:text="${venda.produtos.valor}"></td>
+					<td th:text="${venda.quantProdutos}"></td>
+					<td th:text="${venda.valorTotal}"></td>
+					
+
+				</tr>
+			</table>
+		</div>
+	</div>
+	<form class="form-horizontal" method="POST" action="/vendas">
+			<div class="col-sm-1">
+				<button type="submit" class="btn btn-primary" name="action"
+					value="voltar">Voltar</button>
+			</div>
+		</form>
+
+
+
+
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/app.js"></script>
+
+</body>
+</html>
