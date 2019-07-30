@@ -16,36 +16,46 @@
 			</div>
 		</div>
 	</nav>
-	<form class="form-horizontal" method="POST" action="/vendas">
-	<div class="panel panel-default">
-		<div class="panel-heading">Clientes</div>
-		<table class="table">
-			<tr>
-				<th scope="col">id</th>
-				<th scope="col">Nome</th>
-				<th scope="col">CPF/CNPJ</th>
-				<th scope="col">Data de Nascimento</th>
-				<th scope="col">sexo</th>
-			</tr>
-			<tr th:each="cliente:${addCliente}">
-				<td th:text="${cliente.id}"></td>
-				<td th:text="${cliente.nome}"></td>
-				<td th:text="${cliente.cpf_cnpj}"></td>
-				<td th:text="${cliente.dataNasc}"></td>
-				<td th:text="${cliente.sexo}"></td>
-			</tr>
-		</table>
-		
+	<form class="form-horizontal" method="POST" action="/vendas"
+		th:object="${vendas}">
+		<div class="panel panel-default">
+			<div class="panel-heading">Clientes</div>
+			<table class="table">
+				<tr>
+					<th scope="col">Op</th>
+					<th scope="col">id</th>
+					<th scope="col">Nome</th>
+					<th scope="col">CPF/CNPJ</th>
+					<th scope="col">Data de Nascimento</th>
+					<th scope="col">sexo</th>
+				</tr>
+				<tr th:each="cliente:${addCliente}">
+					<td><input type="radio" th:field="*{clientes}" th:value="${cliente.id}" /></td>
+					<td th:text="${cliente.id}"></td>
+					<td th:text="${cliente.nome}"></td>
+					<td th:text="${cliente.cpf_cnpj}"></td>
+					<td th:text="${cliente.dataNasc}"></td>
+					<td th:text="${cliente.sexo}"></td>
+				</tr>
+			</table>
 
-	</div>
-	
+
+		</div>
+		
+		<div class="col-sm-1">
+			<button type="submit" class="btn btn-primary" name="action"
+				value="selecionarCliente">Selecionar Cliente</button>
+		</div>
+
 	</form>
 	<form class="form-horizontal" method="POST" action="/vendas">
-			<div class="col-sm-1">
-				<button type="submit" class="btn btn-primary" name="action"
-					value="voltar">Voltar</button>
-			</div>
-		</form>
+
+		<div class="col-sm-1">
+			<button type="submit" class="btn btn-primary" name="action"
+				value="voltar">Voltar</button>
+		</div>
+
+	</form>
 
 
 

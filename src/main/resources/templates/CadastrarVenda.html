@@ -32,35 +32,36 @@
 				<label for="status" class="col-sm-2 control-label">Selecione
 					o Cliente:</label>
 				<div class="col-sm-4">
-					<select class="form-control" name="clientes">
-						<option th:each="cliente : ${addCliente}" th:value="${cliente.id}"
-							th:field="*{clientes}" th:text="${cliente.nome}"></option>
-					</select>
+<!-- 					<select class="form-control" name="clientes"> -->
+<!-- 						<option th:each="cliente : ${addCliente}" th:value="${cliente.id}" -->
+<!-- 							th:field="*{clientes}" th:text="${cliente.nome}"></option> -->
+<!-- 					</select>  -->
+					<input type="text" class="form-control"
+						  	
+							th:field="*{clientes.nome}" th:value="${cliente.id}" readonly="readonly" hidden="true" />
 				</div>
 				<div class="col-sm-2 ">
 					<button type="submit" class="btn btn-primary" name="action"
-						value="listarClientes">Listar Clientes</button>
+						value="listarClientes">Selecionar Cliente</button>
 				</div>
+
 			</div>
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Selecione
 					o Curso Desejado:</label>
 				<div class="col-sm-4">
-<<<<<<< HEAD
 					<select class="form-control" name="produtos" id="options">
 						<option th:each="produto : ${addProduto}" th:value="${produto.id}"
 							th:field="*{produtos}"
-=======
-					<select class="form-control" name="produtos" id="options">	
-						<option th:each="produto : ${addProduto}" th:value="${produto.id}" th:field="*{produtos}"
->>>>>>> 2d20c12c7019b61f92119aa3f875c2c182c17749
-							th:text="${produto.nome} + '    R$' + ${produto.valor}"></option>
-					</select>
+							th:text="${produto.nome} + '  R$' + ${produto.valor}"></option>
+					</select> 
+<!-- 					<input type="text" class="form-control" th:field="*{produtos.nome}" -->
+<!-- 						readonly="readonly" /> -->
 				</div>
-				<div class="col-sm-2 ">
-					<button type="submit" class="btn btn-primary" name="action"
-						value="listarProdutos">Listar Produtos</button>
-				</div>
+<!-- 				<div class="col-sm-2 "> -->
+<!-- 					<button type="submit" class="btn btn-primary" name="action" -->
+<!-- 						value="listarProdutos">Selecionar Produto</button> -->
+<!-- 				</div> -->
 			</div>
 			<div class="form-group">
 				<label for="Quantidade" class="col-sm-2 control-label">Quantidade

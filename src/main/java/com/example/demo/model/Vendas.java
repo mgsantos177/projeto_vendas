@@ -40,9 +40,11 @@ public class Vendas {
 	
 	
 	public Vendas() {
+		this.clientes = getClientes();
 		
 		this.quantProdutos=1;
 		this.valorTotal=0;
+		
 	}
 
 	public Long getId() {

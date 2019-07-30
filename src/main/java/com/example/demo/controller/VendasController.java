@@ -48,7 +48,7 @@ public class VendasController {
 		return mv;
 	}
 	
-	
+	 
 	@RequestMapping(method = RequestMethod.POST,params = "action=limpar")
 	public ModelAndView limpar() {
 	return novo();
@@ -70,6 +70,7 @@ public class VendasController {
 	
 	@RequestMapping(method = RequestMethod.POST,params = "action=listarClientes")
 	public ModelAndView listarClientes(Vendas vendas) {
+		pegaCliente(vendas);
 		ModelAndView mv = new ModelAndView("listarClientes");
 		return mv;
 	}
@@ -86,10 +87,25 @@ public class VendasController {
 		return mv;
 	}
 	
+	@RequestMapping(method = RequestMethod.POST,params = "action=selecionarCliente")
+	public ModelAndView selecionarCliente(Vendas vendas) {
+		pegaCliente(vendas);
+		ModelAndView mv = new ModelAndView("cadastrarVenda");
+		return mv;
+	}
 	
+//	@RequestMapping(method = RequestMethod.POST,params = "action=selecionarProduto")
+//	public ModelAndView selecionarProduto(Vendas vendas) {
+//		
+//		ModelAndView mv = new ModelAndView("cadastrarVenda");
+//		return mv;
+//	}
 	
+	private void pegaCliente(Vendas vendas) {
+		Clientes clientes = vendas.getClientes();
+		vendas.setClientes(clientes);
+	}
 	
-
 	private void calcularTotal(Vendas vendas) {
 		Produtos produtos = vendas.getProdutos();
 		int quantProdutos = vendas.getQuantProdutos();
@@ -101,9 +117,7 @@ public class VendasController {
     public ResponseEntity<?> exportarTxt(Vendas vendas) throws IOException  {
     	
     	File arquivo = vendasService.exportarVendas();
-       
     	InputStreamResource resource = new InputStreamResource(new FileInputStream(arquivo));
-    	
     	arquivo.delete();
         return ResponseEntity.ok().header("Content-Disposition", "attachment; filename=\"relatorio_vendas.csv\"").contentLength(arquivo.length())
                 .contentType(MediaType.parseMediaType("application/octet-stream"))

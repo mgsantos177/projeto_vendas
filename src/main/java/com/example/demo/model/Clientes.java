@@ -25,7 +25,7 @@ public class Clientes {
 	private String cpf_cnpj;
 	
 	public Clientes() {
-		this.id = getId();
+		this.id = 0l;
 		this.nome = getNome();
 		this.cpf_cnpj = getCpf_cnpj();
 		this.dataNasc = getDataNasc();
